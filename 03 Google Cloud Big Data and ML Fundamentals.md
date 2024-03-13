@@ -1,3 +1,5 @@
+
+# Big Data and ML on Google Cloud
 ## Google Cloud Infrastructure
 Está basada en 5 locations: **Norte América, Sudamérica, Europa, Asia y Australia**.
 Tener múltiples localizaciones de servicios es importante para elegir donde alojar nuestras aplicaciones ya que esto afectará a la disponibilidad, durabilidad y latencia.
@@ -30,4 +32,11 @@ De forma alternativa, si tenemos datos estructurados el uso de los diferentes se
 
 <img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/storageporcasodeuso.png?raw=true" /> 
 
+
+
+
+
+# Data Engineering for Streaming Data
+
+## Message Orientated Architectures
 
