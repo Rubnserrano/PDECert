@@ -13,4 +13,19 @@ Google ofrece un montón de servicios de computación.
 - Cloud Run: plataforma de procesamiento administrada que te permite ejecutar contenedores directamente sobre la infraestructura escalable de Google.
 
 ## Storage
-En la computación en la nube, las limitaciones del procesamiento no están atadas al almacenamiento. 
+En la computación en la nube, las limitaciones del procesamiento no están atadas al almacenamiento de los discos.  Podrías correr una base de datos en una instancia de Compute Engine (que esta si tendría almacenamiento limitado a la cantidad de gb de los discos), o por otro lado usar servicios totalmente gestionados de almacenamiento y bases de datos. Algunos de estos servicios (que dependen del caso de uso) son: Cloud Storage, Cloud BigTable, CloudSQL, Cloud Spanner, Firestore y BigQuery.
+
+Podemos diferenciar dos tipos de datos. Los estructurados: que estan altamente organizados y formateados de tal manera que se pueden buscar fácilmente en bbdd relacionales. Los no estructurados no tienen formato ni organización predefinidos.
+
+Cloud Storage es un servicio gestionado por Google para guardar datos no estructurados. A diferencia de otras arquitecturas, designa los datos como unidades distintas, agrupadas con metadatos y un identificador único. Estas unidades se denominan objetos y se guardan en contenedores llamados 'buckets', que estan asociados con un proyecto y estos proyectos pueden o no pertenecer a una organización que los agrupa.
+
+Cloud Storage tiene 4 clases primarias:
+- Standard Storage: datos que accedes de forma frecuente. También es util para guardar datos durante un periodo corto de tiempo.
+- Nearline Storage: datos a los que accedes de forma poco frecuente, 1 vez al mes o menos. 
+- Coldline Storage: parecido a Nearline Storage, 1 vez cada 3 meses
+- Archive Storage: una vez al año. (duración minima de 365 días)
+Conforme menos debamos acceder a esos datos, más barato sera este tipo de almacenamiento.
+
+De forma alternativa, si tenemos datos estructurados el uso de los diferentes servicios vendría dado por el siguiente diagrama:
+
+<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/storageporcasodeuso.jpg?raw=true" /> 
