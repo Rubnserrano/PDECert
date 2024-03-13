@@ -28,4 +28,6 @@ Conforme menos debamos acceder a esos datos, más barato sera este tipo de almac
 
 De forma alternativa, si tenemos datos estructurados el uso de los diferentes servicios vendría dado por el siguiente diagrama:
 
-<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/storageporcasodeuso.jpg?raw=true" /> 
+<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/storageporcasodeuso.png?raw=true" /> 
+
+
