@@ -40,3 +40,10 @@ De forma alternativa, si tenemos datos estructurados el uso de los diferentes se
 
 ## Message Orientated Architectures
 
+Hoy en día los datos pueden ser enviados desde varios dispositivos y de diferentes formas. Además, estos datos pueden venir muy rápido y con gran volumen por lo que debemos asegurarnos de que los servicios sean seguros, confiables y funcionen como esperamos.
+Google ofrece un servicio para manejar arquitecturas distribuidas orientadas a mensajes a gran escala, **Pub/Sub**.
+Es un mensaje de mensajería distribuida que puede recibir mensajes de varios dispositivos como eventos de gaming, dispositivos IoT y flujos de aplicaciones. 
+
+Una arquitectura end-to-end de streaming podría verse algo así
+
+<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/arqpubsub.png?raw=true" /> 
