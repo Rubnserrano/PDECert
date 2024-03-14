@@ -1,5 +1,4 @@
 
-
 En este laboratorio aprenderá a:
 - Crear un trabajo Dataflow a partir de una plantilla
 - Transmitir una pipeline de datos a BigQuery
@@ -159,9 +158,14 @@ GROUP BY minute, timestamp
 
 El código SQL incluye una función de ventana `ROW_NUMBER() OVER()` que genera un número de fila secuencial para cada fila resultante. Esto significa que cada fila tendrá un número de fila único, incluso si las filas comparten el mismo minuto. Por lo tanto, incluso si varias filas tienen el mismo minuto, cada una tendrá un número de fila diferente debido a la función de ventana utilizada en la consulta.
 
-<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/lab01-presql.png?raw=true" /> 
+Datos pre-sentencia SQL
 
-<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/lab01-postql.png?raw=true" /> 
+<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/PDELabs/imgs/lab01-presql.png?raw=true" /> 
+
+Datos post-sentencia SQL
+<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/PDELabs/imgs/lab01-postsql.png?raw=true" /> 
+
+
 
 
 Y guardamos la query como _My saved query_
