@@ -109,7 +109,10 @@ Por último seleccionamos estas opciones en la ventana de parámetros opcionales
 El comando de CloudShell para ejecutar todo esto rápidamente es el siguiente:
 
 ```bash
-gcloud dataflow flex-template run streaming-taxi-pipeline --template-file-gcs-location gs://dataflow-templates-us-west1/latest/flex/Stream_GCS_Text_to_BigQuery_Flex --region us-west1 --num-workers 1 --additional-user-labels "" --parameters inputFilePattern=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp/rt_taxidata.csv,JSONPath=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp/schema.json,outputTable=qwiklabs-gcp-02-a7a3370660a4:taxirides.realtime,javascriptTextTransformGcsPath=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp/transform.js,javascriptTextTransformFunctionName=transform,bigQueryLoadingTemporaryDirectory=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp,useStorageWriteApi=false,numStorageWriteApiStreams=0,javascriptTextTransformReloadIntervalMinutes=0,maxNumWorkers=2,workerMachineType=e2-medium
+gcloud dataflow flex-template run streaming-taxi-pipeline \
+--template-file-gcs-location gs://dataflow-templates-us-west1/latest/flex/Stream_GCS_Text_to_BigQuery_Flex --region us-west1 \
+--num-workers 1 --additional-user-labels "" --parameters \
+inputFilePattern=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp/rt_taxidata.csv,JSONPath=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp/schema.json,outputTable=qwiklabs-gcp-02-a7a3370660a4:taxirides.realtime,javascriptTextTransformGcsPath=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp/transform.js,javascriptTextTransformFunctionName=transform,bigQueryLoadingTemporaryDirectory=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp,useStorageWriteApi=false,numStorageWriteApiStreams=0,javascriptTextTransformReloadIntervalMinutes=0,maxNumWorkers=2,workerMachineType=e2-medium
 ```
 
 
@@ -164,11 +167,6 @@ Datos pre-sentencia SQL
 
 Datos post-sentencia SQL
 <img src=  "https://github.com/Rubnserrano/PDECert/blob/main/PDELabs/imgs/lab01-postsql.png?raw=true" /> 
-
-
-
-
-Y guardamos la query como _My saved query_
 
 ### 6) Cancelar el job de Dataflow
 
