@@ -44,6 +44,26 @@ Hoy en día los datos pueden ser enviados desde varios dispositivos y de diferen
 Google ofrece un servicio para manejar arquitecturas distribuidas orientadas a mensajes a gran escala, **Pub/Sub**.
 Es un mensaje de mensajería distribuida que puede recibir mensajes de varios dispositivos como eventos de gaming, dispositivos IoT y flujos de aplicaciones. 
 
-Una arquitectura end-to-end de streaming podría verse algo así
+Una arquitectura end-to-end de streaming podría verse algo así:
 
 <img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/arqpubsub.png?raw=true" /> 
+
+Pub/Sub te permite crear sistemas de productores y consumidores de eventos, llamados **publicadores** y **suscriptores**. Los publicadores se comunican con los suscriptores de forma asíncrona mediante la transmisión de eventos, en lugar de llamadas de procedimiento remoto (RPC) síncronas.
+
+Los publicadores envían eventos al servicio de Pub/Sub sin tener en cuenta cómo o cuándo se deben procesar. Luego, Pub/Sub entrega eventos a todos los servicios que reaccionan a ellos
+
+## Designing streaming pipelines with Apache Beam
+
+Después de que los mensajes sean capturados de una fuente de streaming necesitas enviar los datos a un data warehouse para el análisis. Aquí es donde entra Dataflow.
+Dataflow crea una pipeline para procesamiento en batch y en streaming. Procesar en este caso se refiere a los pasos de extraer, transformar y cargar los datos.  
+Apache Beam modelo de programación open source para definir y ejecutar pipelines de procesamiento de datos.
+Es unificado, ya que usa un único modelo de programación para batch y streaming.
+Es portátil, ya que puede funcionar en múltiples entornos de ejecución como Dataflow o Apache Spark.
+Es extensible, ya que te permite escribir y compartir tus propias librerías de conectores y transformaciones.
+Además, Apache Beam también ofrece plantillas de pipelines que se pueden dividir en streaming, batch y utility.
+
+## Implementing streaming pipelines on Cloud Dataflow.
+
+Apache Beam se usa para crear pipelines, pero el siguiente paso es identificar que dispositivo de ejecución las implementará. Esto nos lleva a Dataflow, un servicio totalmente autogestionado por Google para ejecutar pipelines de Beam en GCP. No necesitas gestionar los recursos  (serverless) ya que dataflow posee autoescalado (no-ops) para cumplir los requerimientos de las pipelines.
+
+Cuando Dataflow recibe un job, empieza optimizando el grafo de ejecución de la pipeline para eliminar ineficiencias. Luego planifica el trabajo distribuido a nuevos workers y escala según necesario. Después se "sana" de cualquier fallo de los workers y automáticamente rebalancea las cargas para que los workers trabajen de la forma más eficiente posible. Y por último, saca los datos como output, por ejemplo a BigQuery.
