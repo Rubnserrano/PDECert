@@ -67,3 +67,62 @@ Además, Apache Beam también ofrece plantillas de pipelines que se pueden divid
 Apache Beam se usa para crear pipelines, pero el siguiente paso es identificar que dispositivo de ejecución las implementará. Esto nos lleva a Dataflow, un servicio totalmente autogestionado por Google para ejecutar pipelines de Beam en GCP. No necesitas gestionar los recursos  (serverless) ya que dataflow posee autoescalado (no-ops) para cumplir los requerimientos de las pipelines.
 
 Cuando Dataflow recibe un job, empieza optimizando el grafo de ejecución de la pipeline para eliminar ineficiencias. Luego planifica el trabajo distribuido a nuevos workers y escala según necesario. Después se "sana" de cualquier fallo de los workers y automáticamente rebalancea las cargas para que los workers trabajen de la forma más eficiente posible. Y por último, saca los datos como output, por ejemplo a BigQuery.
+
+
+# Big Data with BigQuery
+
+BigQuery es un datawarehouse totalmente gestionado , osea que no necesitamos encargarnos de la infraestructura (serverless), la seguridad o el despliegue del mismo. Además de ser un datawarehouse nos proporciona un entorno de análisis mediante consultas SQL. Tiene un modelo de pago flexible, podemos pagar por lo que usamos o contratar cuotas de uso. Este servicio también gestiona la encriptación de los datos.
+
+### Storage and analytics
+
+Podemos usar datos internos que ya estén en BigQuery o hacer el traslado desde otros servicios de GCP e incluso desde otros proveedores de cloud.
+Una vez que los datos están en BQ, automáticamente se replican, se hacen back-ups y se autoescala según necesidades. También podemos hacer queries de datos que se encuentren en servicios externos de GCP como CloudStorage, y bbdd como Cloud Spanner o Cloud SQL sin necesidad de ingestarlos antes.
+BigQuery permite realizar análisis ad hoc, análisis geoespaciales, crear modelos de ML y crear dashboards de BI, entre otros.
+
+### BigQuery ML
+Como hemos adelantado anteriormente, BigQuery también soporta la creación de modelos de ML supervisados y no supervisados.
+El primer paso sería definir el modelo con una sentencia de este tipo:
+
+```sql
+CREATE MODEL {nombre}
+OPTIONS 
+	(model_type = '{modelo}', labels = ['{etiquetas}']) AS
+WITH {dataset/tabla} AS (
+SELECT ...{consulta}
+)
+```
+
+y para predecir usaríamos la sentencia _ml.PREDICT_, por ejemplo:
+
+```sql
+SELECT 
+predicted_num_trips, num_trips, trip_data,
+FROM
+ml.PREDICT(MODEL `{modelname}`, (WITH bike_data AS
+	SELECT ... {consulta})
+```
+
+Adicionalmente también podemos evaluar el modelo usando la orden ML.EVALUATE tal que así:
+
+```sql
+SELECT
+	roc_auc, 
+	accuracy,
+	precision,
+	recall,
+FROM
+	ML.EVALUATE(MODEL `{nombre_modelo}`)
+```
+
+También tiene opciones de MLOps, como importar modelos de tensorflow, exportar modelos o modificar los hiperparámetros del mismo (esto podemos hacerlo manualmente o dejar que lo haga automáticamente.
+Algunas de las opciones de tratamiento de datos previas a la creación del modelo que nos ofrece BQ de forma automática es one-hot encoding de vars categóricas o splitting en train y test.
+
+### Fases de un proyecto de BQ ML
+- ETL into BQ
+- Seleccionar y preprocesar las features
+- Crear el modelo en BQ
+- Evaluar la performance del mismo
+- Realizar predicciones con el modelo
+
+### Comandos clave de BQ ML
+<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/bqmlcommands.png?raw=true" /> 
