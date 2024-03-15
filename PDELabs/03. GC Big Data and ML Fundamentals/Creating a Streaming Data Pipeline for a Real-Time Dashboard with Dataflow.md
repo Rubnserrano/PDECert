@@ -1,11 +1,11 @@
 
-En este laboratorio aprenderá a:
+Los objetivos de este laboratorio serán:
 - Crear un trabajo Dataflow a partir de una plantilla
 - Transmitir una pipeline de datos a BigQuery
 - Monitorizar una pipeline de Dataflow en BigQuery
 - Analizar resultados con SQL
 - Visualizar métricas clave en Looker Studio
-### 1) Crear un Dataset de BigQuery
+## 1) Crear un Dataset de BigQuery
 Creamos un dataset que se llame taxirides, podemos hacerlo desde la CloudShell:
 
 ```bash
@@ -42,7 +42,7 @@ passenger_count:integer
 
 En Partition and cluster settings seleccionamos timestamp y creamos la tabla.
 
-### 2) Copiar archivos requeridos del laboratorio
+## 2) Copiar archivos requeridos del laboratorio
 En esta sección moveremos algunos archivos requeridos a nuestro Proyecto.
 Ejecutamos lo siguiente en la CloudShell:
 
@@ -54,7 +54,7 @@ gcloud storage cp gs://cloud-training/bdml/taxisrcdata/rt_taxidata.csv  gs://qwi
 
 Básicamente lo que estamos haciendo es copiar desde un bucket público a nuestro bucket los archivos schema.json, transform.js y rt_taxidata.csv
 
-### 3) Configurar una pipeline de Dataflow
+## 3) Configurar una pipeline de Dataflow
 En esta sección setearemos la pipeline de streaming para leer archivos de nuestro Cloud Storage y escribirlos en BigQuery.
 
 En la UI de Dataflow clickamos en _Create Job From Template_ y escribimos **streaming-taxi-pipeline** como nombre del Job. También seleccionamos us-west1 como región. En plantilla seleccionamos _Cloud Storage Text to BigQuery (Stream)_
@@ -116,7 +116,7 @@ inputFilePattern=gs://qwiklabs-gcp-02-a7a3370660a4-bucket/tmp/rt_taxidata.csv,JS
 ```
 
 
-### 4) Analizar los datos de los taxis con BigQuery
+## 4) Analizar los datos de los taxis con BigQuery
 
 Simplemente hacemos que nos muestre las 10 primeras filas para comprobar que está todo bien.
 
@@ -125,7 +125,7 @@ SELECT * FROM taxirides.realtime
 LIMIT 10
 ```
 
-### 5) Realizar agregaciones para el reporte
+## 5) Realizar agregaciones para el reporte
 
 ```sql
 WITH streaming_data AS (
@@ -168,8 +168,8 @@ Datos pre-sentencia SQL
 Datos post-sentencia SQL
 <img src=  "https://github.com/Rubnserrano/PDECert/blob/main/PDELabs/imgs/lab01-postsql.png?raw=true" /> 
 
-### 6) Cancelar el job de Dataflow
+## 6) Cancelar el job de Dataflow
 
-### 7) Crear un dashboard en tiempo real
+## 7) Crear un dashboard en tiempo real
 
-### 8) Crear un dashboard de series temporales
+## 8) Crear un dashboard de series temporales

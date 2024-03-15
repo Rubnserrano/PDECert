@@ -125,4 +125,24 @@ Algunas de las opciones de tratamiento de datos previas a la creación del model
 - Realizar predicciones con el modelo
 
 ### Comandos clave de BQ ML
+
 <img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/bqmlcommands.png?raw=true" /> 
+# Machine Learning Options on Google Cloud
+
+### Options to build ML Models
+- BigQuery ML. Mediante consultas SQL
+- API's ya construidas. Usar modelos ya creados por google para tareas específicas.
+- AutoML. Solución no-code para construir los modelos en VertexAI
+- Custom Training. Crear un entorno de ML y tener el control absoluto
+
+<img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/gcpmloptions.png?raw=true" /> 
+
+### Pre-builts API's
+
+Si no tenemos suficientes datos para crear un modelo aceptable, podemos hacer uso de estas API's ya construidas entrenadas con muchísimos datos por Google que podemos fine-tunear para usar en nuestro caso de uso. Algunos ejemplos son los siguientes:
+- Speech-to-text API: para convertir audio a texto
+- Cloud Natural Language API: reconoce partes de un texto y análisis de sentiminetos
+- Cloud Translation API: convierte texto de un idioma a otro
+- Text-to-speech API: convierte texto a audio
+- Vision API: reconocimiento de contenido en imágenes
+- Video Intelligence API: reconoce movimientos y acciones en vídeos
