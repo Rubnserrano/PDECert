@@ -164,3 +164,7 @@ Si nuestro entrenamiento necesita de una plataforma como TensorFlow, Pytorch, Sc
 Existen un montón de retos alrededor de llevar modelos de ML a producción, retos que requieren de escalabilidad, montorización, CI/CD y despligue. Más tarde, también surgen retos en la facilidad de uso del mismo. Algunas herramientas del mercado requieren habilidades avanzadas de programación, que pueden desviar a los data scientist de la configuración del modelo.  Y sin un flujo de trabajo unificado, los data scientist pueden tener dificultades encontrando las herramientas que necesitan.
 La solución de Google a muchos de estos retos de producción y de uso es VertexAI, una plataforma unificada que brinda todos los componentes del ecosistema y flujo de trabajo del ML juntos. Pero, ¿qué significa exactamente plataforma unificada?
 En este caso, significa tener una única experiencia digital para crear, desplegar, manejar modelos en el tiempo y escalarlos.
+
+# Machine Learning Workflow with VertexAI
+
+### Data preparation
