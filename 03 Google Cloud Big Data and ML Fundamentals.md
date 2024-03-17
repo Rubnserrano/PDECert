@@ -138,7 +138,6 @@ Algunas de las opciones de tratamiento de datos previas a la creación del model
 <img src=  "https://github.com/Rubnserrano/PDECert/blob/main/imgs/gcpmloptions.png?raw=true" /> 
 
 ### Pre-builts API's
-
 Si no tenemos suficientes datos para crear un modelo aceptable, podemos hacer uso de estas API's ya construidas entrenadas con muchísimos datos por Google que podemos fine-tunear para usar en nuestro caso de uso. Algunos ejemplos son los siguientes:
 - Speech-to-text API: para convertir audio a texto
 - Cloud Natural Language API: reconoce partes de un texto y análisis de sentiminetos
@@ -146,3 +145,22 @@ Si no tenemos suficientes datos para crear un modelo aceptable, podemos hacer us
 - Text-to-speech API: convierte texto a audio
 - Vision API: reconocimiento de contenido en imágenes
 - Video Intelligence API: reconoce movimientos y acciones en vídeos
+
+
+### AutoML
+El objetivo de autoML es ahorrar trabajo manual y repetitivo a los data scientist como tunear hiperparámetros y comparar diferentes modelos. Para esto, dos tecnologías son vitales.
+La primera es transfer learning, una técnica de ML que se aprovecha del conocimiento adquirido por un modelo entrenado en una tarea para mejorar el rendimiento de otra tarea relacionada. En lugar de entrenar un modelo desde cero, se utiliza un modelo preentrenado y se ajusta a la nueva tarea específica.
+La segunda es _Neural Architecture Search_ que hace un ensamblado de modelos de ML y elige la mejor opción.
+AutoML es una herramienta no-code, y soporta 4 tipos de datos: imágenes, tabulares, texto y vídeos
+
+
+### Custom Training
+Podemos programar nuestro propio modelo de ML con _Vertex AI Workbench_, se trata de un entorno de desarrollo para ciencia de datos desde la exploración hasta el entrenamiento y el despliegue.
+Antes de empezar a programar, necesitamos determinar que tipo de entorno queremos para el entrenamiento de nuestro modelo. Tenemos dos opciones: un contenedor pre-construido o uno personalizado.
+Si nuestro entrenamiento necesita de una plataforma como TensorFlow, Pytorch, Scikit-learn, XGBoost o Python, un contener pre-construido seguramente sea la mejor opción.
+
+
+### VertexAI
+Existen un montón de retos alrededor de llevar modelos de ML a producción, retos que requieren de escalabilidad, montorización, CI/CD y despligue. Más tarde, también surgen retos en la facilidad de uso del mismo. Algunas herramientas del mercado requieren habilidades avanzadas de programación, que pueden desviar a los data scientist de la configuración del modelo.  Y sin un flujo de trabajo unificado, los data scientist pueden tener dificultades encontrando las herramientas que necesitan.
+La solución de Google a muchos de estos retos de producción y de uso es VertexAI, una plataforma unificada que brinda todos los componentes del ecosistema y flujo de trabajo del ML juntos. Pero, ¿qué significa exactamente plataforma unificada?
+En este caso, significa tener una única experiencia digital para crear, desplegar, manejar modelos en el tiempo y escalarlos.
