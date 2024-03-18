@@ -168,3 +168,26 @@ En este caso, significa tener una única experiencia digital para crear, despleg
 # Machine Learning Workflow with VertexAI
 
 ### Data preparation
+La primera etapa de un proceso en AutoML es la preparación de los datos. En esta etapa, debemos subir los datos y prepararlos para el entrenamiento del modelo con selección de características. Cuando subimos un dataset a VertexAI debemos dar un nombre y seleccionar el tipo de dato. Debemos tener nuestras etiquetas hechas, podemos hacerlas a mano o hacer uso de la consola de Vertex que las generará automáticamente.
+El siguiente paso es seleccionar una fuente de salida como puede ser BigQuery o CloudStorage. Más tarde debemos realizar la llamada _ingeniería de características_ o feature ingeneering.  Para esto podemos usar la función de Vertex llamada Feature Store.
+
+### Model training
+Ahora que nuestros datos están listos, es hora de entrenar el modelo. Esto consta de dos fases: el entrenamiento en sí y la evaluación para saber cómo de bueno es este modelo. Este proceso suele ser iterativo para encontrar el mejor modelo que se adapte a nuestras necesidades. Hay muchísimos tipos de modelos que se categorizan según diversas propiedades como supervisado o no supervisado, y dependiendo de nuestro caso de uso unos modelos serán más acertados que otros.
+Sin embargo en AutoML o API's preconstruidas no necesitamos especificarlos, en vez de eso definimos el objetivo y Google seleccionará el mejor modelo que se adapte a dicho objetivo.
+
+
+### Model evaluation
+En la evaluación nos hacemos uso de métricas para determinar la performance de nuestros modelos. Existen dos tipos de medidas: la primera es la basada en la matriz de confusión (ej: recall, precision) y la segunda es la basada en la importancia de las características. Esta última se usa por ejemplo en la funcionalidad Explanaible AI para intentar comprender las salidas de nuestros modelos con lenguaje natural.
+
+
+### Model deployment and monitoring
+Una vez determinado el modelo que mejor se adapte a nuestro caso de uso debemos desplegarlo y monitorizarlo para comprobar que esta funcionando adecuadamente o detectar fallos.
+De esto se ocupa el MLOps o Machine Learning Operations y ayuda a resolver los retos relacionados con la producción de nuestros modelos. Esto suele ser una parte delicada ya que los datas y el código pueden estar constántemente evolucionando. 
+Existen tres opciones para desplegar nuestros modelos: endpoint (para predicciones en tiempo real cuando estamos online), predicciones por lotes y predicciones ofline.
+La _columna vertebral_ del MLOps en Vertex AI es una herramienta llamada Vertex AI Pipelines que automatiza, monitoriza y gobierna los sistemas de Ml orquestados con un flujo de trabajo de una forma serverless. Si algo va mal, automáticamente manda warnings basados en un límite preestablecido.
+
+
+
+
+
+
